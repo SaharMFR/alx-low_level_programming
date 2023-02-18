@@ -14,7 +14,7 @@ int main(void)
 		putchar(x + '0');
 		if (x < 9)
 		{
-			putcahr(',');
+			putchar(',');
 			putchar(' ');
 		}
 		x++;
