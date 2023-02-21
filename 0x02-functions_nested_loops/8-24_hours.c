@@ -28,7 +28,8 @@ void jack_bauer(void)
 
 				break;
 			}
-			else {
+			else
+			{
 				for (k = 0; k <= 5; k++)
 				{
 					for (l = 0; l <= 9; l++)
