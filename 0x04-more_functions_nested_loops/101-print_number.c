@@ -5,37 +5,39 @@
  */
 void print_number(int n)
 {
-	int power, longN, check;
+	long m;
+	int c;
+	long num;
 
-	longN = n;
+	num = n;
 	/* if negative */
-	if (longN < 0)
+	if (num < 0)
 	{
+		num *= -1;
 		_putchar('-');
-		longN *= -1;
 	}
 
-	check = 1;
-	power = 1;
-	while (ckeck)
+	m = 1;
+	c = 1;
+	while (c)
 	{
-		if ((longN / (power * 10)) > 0)
-			power *= 10;
+		if ((num / (m * 10)) > 0)
+			m *= 10;
 		else
-			check = 0;
+			c = 0;
 	}
 
-	while (longN >= 0)
+	while (num >= 0)
 	{
-		if (power == 1)
+		if (m == 1)
 		{
-			_putchar((longN % 10) + '0');
-			longN = -1;
+			_putchar((num % 10) + '0');
+			num = -1;
 		}
 		else
 		{
-			_putchar(((longN / power) % 10) + '0');
-			power /= 10;
+			_putchar((num / m % 10) + '0');
+			m /= 10;
 		}
 	}
 }
