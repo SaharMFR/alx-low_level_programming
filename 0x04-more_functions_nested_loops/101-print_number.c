@@ -5,8 +5,8 @@
  */
 void print_number(int n)
 {
-	long power = 1, longN;
-	int check = 1;
+	long power, longN;
+	int check;
 
 	longN = n;
 	/* if negative */
@@ -16,6 +16,8 @@ void print_number(int n)
 		longN *= -1;
 	}
 
+	check = 1;
+	power = 1;
 	while (ckeck)
 	{
 		if ((longN / (power * 10)) > 0)
