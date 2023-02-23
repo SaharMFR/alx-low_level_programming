@@ -5,8 +5,7 @@
  */
 void print_number(int n)
 {
-	long long power, longN;
-	int check;
+	int power, longN, check;
 
 	longN = n;
 	/* if negative */
