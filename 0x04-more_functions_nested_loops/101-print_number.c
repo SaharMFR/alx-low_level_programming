@@ -5,7 +5,7 @@
  */
 void print_number(int n)
 {
-	long power, longN;
+	long long power, longN;
 	int check;
 
 	longN = n;
