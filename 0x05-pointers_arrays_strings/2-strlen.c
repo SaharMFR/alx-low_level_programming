@@ -7,10 +7,9 @@
 int _strlen(char *s)
 {
 	int nChars;
-	int i;
 
-	for (i = 0; s[i] != '\0'; i++)
-		nChars++;
+	for (nChars = 0; s[nChars] != '\0'; nChars++)
+		;
 
 	return (nChars);
 }
