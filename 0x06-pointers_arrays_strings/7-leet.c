@@ -14,7 +14,7 @@ char *leet(char *str)
 	{
 		for (j = 0; lettersReplaced[i] != '\0'; j++)
 		{
-			if (str[i] == letterReplaced[j])
+			if (str[i] == lettersReplaced[j])
 			{
 				str[i] = lettersEncoded[j];
 				break;
