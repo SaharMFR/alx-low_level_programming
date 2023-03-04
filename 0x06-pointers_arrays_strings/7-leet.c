@@ -12,7 +12,7 @@ char *leet(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; lettersReplaced[i] != '\0'; j++)
+		for (j = 0; lettersReplaced[j] != '\0'; j++)
 		{
 			if (str[i] == lettersReplaced[j])
 			{
