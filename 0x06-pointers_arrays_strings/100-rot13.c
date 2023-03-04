@@ -12,10 +12,10 @@ char *rot13(char *str)
 	{
 		if ((str[i] >= 65 && str[i] <= 90 && (str[i] + 13) > 90) || (str[i] >= 97 && str[i] <= 122 && (str[i] + 13) > 122)
 		{
-			(str[i] - 13);
+			str[i] = (str[i] - 13);
 		}
 		else if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
-			(str[i] + 13);
+			str[i] = (str[i] + 13);
 	}
 
 	return (str);
