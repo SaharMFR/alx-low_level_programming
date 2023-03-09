@@ -8,7 +8,11 @@
  */
 int _sqrt_recursion(int n)
 {
-	return (assistantFunction(n, 1));
+	int result;
+
+	result = assistantFunction(n, 1);
+
+	return (result);
 }
 
 /**
