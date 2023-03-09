@@ -1,21 +1,5 @@
 #include "main.h"
 /**
- * _sqrt_recursion - Find the natural square root
- * of a number (using recursion).
- * @n: the number (type int).
- * Return: the natural square root if it exists,
- * '-1' if it does not exist (type int).
- */
-int _sqrt_recursion(int n)
-{
-	int result;
-
-	result = assistantFunction(n, 1);
-
-	return (result);
-}
-
-/**
  * assistantFunction - Assistant function to the function
  * _sqrt_recursion.
  * @n: the number (type int).
@@ -31,4 +15,20 @@ int assistantFunction(int n, int sqrt)
 		return (-1);
 
 	return (assistantFunction(n, sqrt + 1));
+}
+
+/**
+ * _sqrt_recursion - Find the natural square root
+ * of a number (using recursion).
+ * @n: the number (type int).
+ * Return: the natural square root if it exists,
+ * '-1' if it does not exist (type int).
+ */
+int _sqrt_recursion(int n)
+{
+	int result;
+
+	result = assistantFunction(n, 1);
+
+	return (result);
 }
