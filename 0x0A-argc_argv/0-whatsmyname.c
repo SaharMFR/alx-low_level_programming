@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * main.h - Print the name of the file followed
+ * main - Print the name of the file followed
  * by a new line.
  * @argc: argument count
  * @argv: arguments passed to main as an array of strings
