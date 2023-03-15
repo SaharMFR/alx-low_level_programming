@@ -4,13 +4,16 @@
  * _strdup - Create a newly allocated space in memory
  * which contains a copy of the string given.
  * @str: the string given (char type string).
- * Return : pointer to the new string, NULL if str = NULL
+ * Return: pointer to the new string, NULL if str = NULL
  * of if insufficient memory was available.
  */
 char *_strdup(char *str)
 {
 	char *arr;
 	int i, j;
+
+	if (str == NULL)
+		return (NULL);
 
 	for (i = 0; str[i] != '\0'; i++)
 		;
