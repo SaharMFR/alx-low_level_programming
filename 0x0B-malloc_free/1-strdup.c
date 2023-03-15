@@ -6,7 +6,7 @@
  * Return : pointer to the new string, NULL if str = NULL
  * of if insufficient memory was available.
  */
-cahr *_strdup(char *str)
+char *_strdup(char *str)
 {
 	char *arr;
 	int i, j;
