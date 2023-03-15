@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 /**
  * _strdup - Create a newly allocated space in memory
  * which contains a copy of the string given.
@@ -14,7 +15,7 @@ char *_strdup(char *str)
 	if (i = 0; str[i] != '\0'; i++)
 		;
 
-	arr = malloc((sizeof(*arr) * i) + 1)
+	arr = malloc((sizeof(*arr) * i) + 1);
 	if (arr == NULL)
 		return (NULL);
 
