@@ -11,11 +11,14 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *newString;
-	int i, j;
+	int length1, i, j;
 
-	newString = malloc(sizeof(s1) + n + 1);
+	for (length1 = 0; s1[length1] != '\0'; length1++)
+		;
+ 
+	newString = malloc(sizeof(char) * (length1 + n + 1));
 
-	for (i = 0; s1[i] != '\0'; i++)
+	for (i = 0; i < length1; i++)
 		newString[i] = s1[i];
 
 	for (j = 0; j < n && s2[j] != '\0'; j++)
