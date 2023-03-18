@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * malloc_checked - Allocate memory using 'malloc'.
  * Description: if malloc fails , the function should cause normal
@@ -11,6 +13,7 @@ void *malloc_checked(unsigned int b)
 	void *allocatedMemory;
 
 	allocatedMemory = malloc(b);
+
 	if (allocatedMemory == NULL)
 		exit(98);
 
