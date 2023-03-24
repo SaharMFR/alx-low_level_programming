@@ -11,6 +11,12 @@ void _printstr(va_list list);
 void _printfloat(va_list list);
 void _printint(va_list list);
 
+/**
+ * struct checker - Definition to check a function on string.
+ * @type: char type string.
+ * @f: function pointer.
+ */
+
 typedef struct checker
 {
 	char *type;
