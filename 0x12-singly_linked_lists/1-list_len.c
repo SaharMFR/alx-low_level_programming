@@ -1,10 +1,13 @@
 #include "lists.h"
+#include <stdlib.h>
+
 /**
  * list_len - Calculate the number of elements in a linked
  * 'list_t' list.
  * @h: pointer to the first element in the list.
  * Return: the number of elements.
  */
+
 size_t list_len(const list_t *h)
 {
 	const list_t *current;
@@ -12,7 +15,7 @@ size_t list_len(const list_t *h)
 
 	length = 0;
 	current = h;
-	if (current != NULL)
+	while (current != NULL)
 	{
 		current = current->next;
 		length++;
