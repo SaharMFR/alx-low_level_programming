@@ -8,12 +8,13 @@
  * @s: the string.
  * @len: the length of the string.
  * @next: pointer to the next node in the list.
+ * Description: singly linked list node structure.
  */
 
 typedef struct list_s
 {
 	char *s;
-	unisgned int len;
+	unsigned int len;
 	struct list_s *next;
 } list_t;
 
