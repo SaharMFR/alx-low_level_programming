@@ -8,25 +8,29 @@
  * @str: string to be saved in new node, need to be duplicated.
  * Return: the address of the new element ,or NULL if failed.
  */
+
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *newNode;
 	int length;
 
-	for (length = 0; dup_str[length] != '\0'; length++)
-		;
+	while (str[length] != NULL)
+		length++;
+
 	newNode = malloc(sizeof(list_t));
 	if (newNode == NULL)
 	{
 		free(new_Node);
 		return (NULL);
 	}
+
 	newNode->s = strdup(str);
 	if (newNode->s == NULL)
 	{
 		free(newNode);
 		return (NULL);
 	}
+
 	newNode->len = length;
 	newNode->next = (*head);
 
