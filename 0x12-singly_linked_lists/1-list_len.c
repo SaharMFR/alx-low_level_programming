@@ -7,8 +7,8 @@
  */
 size_t list_len(const list_t *h)
 {
-	size_t length;
 	const list_t *current;
+	size_t length;
 
 	length = 0;
 	current = h;
