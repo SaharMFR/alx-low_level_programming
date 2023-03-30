@@ -1,8 +1,6 @@
 #ifndef LISTS_H
 #define LISTS_H
-
 #include <stdlib.h>
-
 /**
  * struct list_s - Singly linked list.
  * @s: the string.
@@ -10,7 +8,6 @@
  * @next: pointer to the next node in the list.
  * Description: singly linked list node structure.
  */
-
 typedef struct list_s
 {
 	char *s;
@@ -20,5 +17,5 @@ typedef struct list_s
 
 int _putchar(char c);
 size_t print_list(const list_t *h);
-
+size_t list_len(const list_t *h);
 #endif
