@@ -15,10 +15,13 @@ void print_binary(unsigned long int n)
 	{
 		largest *= 2;
 	}
+
 	largest = (unsigned long int)(largest * 0.5);
 	num = largest;
+
 	_putchar('1');
-	while (largest >= 1)
+
+	while (largest > 1)
 	{
 		if ((num + (unsigned long int)(largest * 0.5)) <= n)
 		{
