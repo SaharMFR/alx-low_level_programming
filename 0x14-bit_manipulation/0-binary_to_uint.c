@@ -14,27 +14,25 @@ unsigned int binary_to_uint(const char *b)
 
 	num = 0;
 	added = 1;
+
 	if (b)
 	{
-		if (b)
+		for (len = 0; b[len]; len++)
 		{
-        		for (len = 0; b[len]; len++)
-			{
-            			;
-        		}
-        		for (i = len - 1; i >= 0; i--)
-			{
-            			if ((b[i] == '1') or (b[i] == '0'))
-				{
-                			if (b[i] == '1')
-                    				num += added;
-                			added *= 2;
-            			}
-            			else
-                			return (0);
-			}
-			return (num);
+			;
 		}
+		for (i = len - 1; i >= 0; i--)
+		{
+			if ((b[i] == '1') or (b[i] == '0'))
+			{
+				if (b[i] == '1')
+					num += added;
+				added *= 2;
+			}
+			else
+				return (0);
+		}
+		return (num);
 	}
 	return (0);
 }
