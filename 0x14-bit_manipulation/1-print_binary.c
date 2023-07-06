@@ -13,7 +13,6 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	int len;
 	unsigned long int largest, num;
 
 	largest = 1;
