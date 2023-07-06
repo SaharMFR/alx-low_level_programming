@@ -30,9 +30,7 @@ unsigned int binary_to_uint(const char *b)
 				added *= 2;
 			}
 			else
-			{
 				return (0);
-			}
 		}
 		return (num);
 	}
