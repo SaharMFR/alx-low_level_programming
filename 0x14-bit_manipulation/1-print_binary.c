@@ -7,8 +7,7 @@
 
 void print_binary(unsigned long int n)
 {
-	int nShifts;
-        unsigned long int num;
+        unsigned long int largest, num;
 
 	if (n == 0)
 	{
@@ -16,15 +15,30 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	for (num = n, nShifts = 0; (num >>= 1) > 0; nShifts++)
-		;
-
-	for (; nShifts >= 0; nShifts--)
+	largest = 1;
+	while (n >= largest)
 	{
-		if ((n >> nShifts) & 1)
+		largest *= 2;
+	}
+
+	largest = (unsigned long int)(largest * 0.5);
+	num = largest;
+
+	_putchar('1');
+
+	while (largest > 1)
+	{
+		if ((num + (unsigned long int)(largest * 0.5)) <= n)
+		{
 			_putchar('1');
+			largest = (unsigned long int)(largest * 0.5);
+			num += largest;
+		}
 		else
+		{
 			_putchar('0');
+			largest = (unsigned long int)(largest * 0.5);
+		}
 	}
 }
 
