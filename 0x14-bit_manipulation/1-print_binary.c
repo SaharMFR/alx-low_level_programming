@@ -9,7 +9,7 @@
 void print_binary(unsigned long int n)
 {
 	int nShifts;
-        unsigned long int num;
+	unsigned long int num;
 
 	if (n == 0)
 	{
