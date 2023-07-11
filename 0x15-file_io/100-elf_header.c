@@ -5,11 +5,11 @@ void printMagic(unsigned char *e_ident);
 void printClass(unsigned char *e_ident);
 void printData(unsigned char *e_ident);
 void printVersion(unsigned char *e_ident);
-void print_osabi(unsigned char *e_ident);
-void print_abi(unsigned char *e_ident);
-void print_type(unsigned int e_type, unsigned char *e_ident);
-void print_entry(unsigned long int e_entry, unsigned char *e_ident);
-void close_elf(int elf);
+void print_OS_ABI(unsigned char *e_ident);
+void printABI(unsigned char *e_ident);
+void printType(unsigned int e_type, unsigned char *e_ident);
+void printEntryPointAddress(unsigned long int e_entry, unsigned char *e_ident);
+void closeELF(int elf);
 
 /**
  * checkELF - Checks if the file is an ELF file.
@@ -127,11 +127,11 @@ void printVersion(unsigned char *e_ident)
 }
 
 /**
- * print_osabi - Prints the OS/ABI of an ELF header.
+ * print_OS_ABI - Prints the OS/ABI of an ELF header.
  * @e_ident: Pointer to the array contains the ELF version.
  */
 
-void print_osabi(unsigned char *e_ident)
+void print_OS_ABI(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
 
@@ -173,23 +173,23 @@ void print_osabi(unsigned char *e_ident)
 }
 
 /**
- * print_abi - Prints the ABI version of an ELF header.
+ * printABI - Prints the ABI version of an ELF header.
  * @e_ident: Pointer to the array contains the ELF ABI version.
  */
 
-void print_abi(unsigned char *e_ident)
+void printABI(unsigned char *e_ident)
 {
 	printf("  ABI Version:                       %d\n",
 	       e_ident[EI_ABIVERSION]);
 }
 
 /**
- * print_type - Prints the type of an ELF header.
+ * printType - Prints the type of an ELF header.
  * @e_type: The ELF type.
  * @e_ident: Pointer to the array contains the ELF class.
  */
 
-void print_type(unsigned int e_type, unsigned char *e_ident)
+void printType(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
@@ -219,12 +219,12 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 }
 
 /**
- * print_entry - Prints the entry point of an ELF header.
+ * printEntryPointAddress - Prints the entry point of an ELF header.
  * @e_entry: The address of the ELF entry point.
  * @e_ident: Pointer to the array contains the ELF class.
  */
 
-void print_entry(unsigned long int e_entry, unsigned char *e_ident)
+void printEntryPointAddress(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf("  Entry point address:               ");
 
@@ -243,11 +243,11 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 }
 
 /**
- * close_elf - Closes an ELF file.
+ * closeELF - Closes an ELF file.
  * @elf: The file descriptor of the ELF file.
  */
 
-void close_elf(int elf)
+void closeELF(int elf)
 {
 	if (close(elf) == -1)
 	{
@@ -279,7 +279,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
-		close_elf(o);
+		closeELF(o);
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
@@ -287,7 +287,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (r == -1)
 	{
 		free(header);
-		close_elf(o);
+		closeELF(o);
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
@@ -298,12 +298,12 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	printClass(header->e_ident);
 	printData(header->e_ident);
 	printVersion(header->e_ident);
-	print_osabi(header->e_ident);
-	print_abi(header->e_ident);
-	print_type(header->e_type, header->e_ident);
-	print_entry(header->e_entry, header->e_ident);
+	print_OS_ABI(header->e_ident);
+	printABI(header->e_ident);
+	printType(header->e_type, header->e_ident);
+	printEntryPointAddress(header->e_entry, header->e_ident);
 
 	free(header);
-	close_elf(o);
+	closeELF(o);
 	return (0);
 }
