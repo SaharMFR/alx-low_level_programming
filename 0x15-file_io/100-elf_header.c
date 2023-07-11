@@ -1,10 +1,10 @@
 #include "main.h"
 
-void check_elf(unsigned char *e_ident);
-void print_magic(unsigned char *e_ident);
-void print_class(unsigned char *e_ident);
-void print_data(unsigned char *e_ident);
-void print_version(unsigned char *e_ident);
+void checkELF(unsigned char *e_ident);
+void printMagic(unsigned char *e_ident);
+void printClass(unsigned char *e_ident);
+void printData(unsigned char *e_ident);
+void printVersion(unsigned char *e_ident);
 void print_osabi(unsigned char *e_ident);
 void print_abi(unsigned char *e_ident);
 void print_type(unsigned int e_type, unsigned char *e_ident);
@@ -12,11 +12,11 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
- * check_elf - Checks if the file is an ELF file.
+ * checkELF - Checks if the file is an ELF file.
  * @e_ident: Pointer to the array contains the ELF magic numbers.
  */
 
-void check_elf(unsigned char *e_ident)
+void checkELF(unsigned char *e_ident)
 {
 	int index;
 
@@ -34,11 +34,11 @@ void check_elf(unsigned char *e_ident)
 }
 
 /**
- * print_magic - Prints the magic numbers of an ELF header separated by space.
+ * printMagic - Prints the magic numbers of an ELF header separated by space.
  * @e_ident: Pointer to the array contains the ELF magic numbers.
  */
 
-void print_magic(unsigned char *e_ident)
+void printMagic(unsigned char *e_ident)
 {
 	int index;
 
@@ -56,11 +56,11 @@ void print_magic(unsigned char *e_ident)
 }
 
 /**
- * print_class - Prints the class of an ELF header.
+ * printClass - Prints the class of an ELF header.
  * @e_ident: Pointer to the array contains the ELF class.
  */
 
-void print_class(unsigned char *e_ident)
+void printClass(unsigned char *e_ident)
 {
 	printf("  Class:                             ");
 
@@ -81,11 +81,11 @@ void print_class(unsigned char *e_ident)
 }
 
 /**
- * print_data - Prints the data of an ELF header.
+ * printData - Prints the data of an ELF header.
  * @e_ident: Pointer to the array contains the ELF class.
  */
 
-void print_data(unsigned char *e_ident)
+void printData(unsigned char *e_ident)
 {
 	printf("  Data:                              ");
 
@@ -106,11 +106,11 @@ void print_data(unsigned char *e_ident)
 }
 
 /**
- * print_version - Prints the version of an ELF header.
+ * printVersion - Prints the version of an ELF header.
  * @e_ident: Pointer to the array contains the ELF version.
  */
 
-void print_version(unsigned char *e_ident)
+void printVersion(unsigned char *e_ident)
 {
 	printf("  Version:                           %d",
 	       e_ident[EI_VERSION]);
@@ -292,12 +292,12 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 
-	check_elf(header->e_ident);
+	checkELF(header->e_ident);
 	printf("ELF Header:\n");
-	print_magic(header->e_ident);
-	print_class(header->e_ident);
-	print_data(header->e_ident);
-	print_version(header->e_ident);
+	printMagic(header->e_ident);
+	printClass(header->e_ident);
+	printData(header->e_ident);
+	printVersion(header->e_ident);
 	print_osabi(header->e_ident);
 	print_abi(header->e_ident);
 	print_type(header->e_type, header->e_ident);
