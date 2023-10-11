@@ -9,7 +9,7 @@
 shash_table_t *shash_table_create(unsigned long int size)
 {
 	shash_table_t *sh_table;
-	shash_table_t **arr;
+	shash_node_t **arr;
 	unsigned long int i;
 
 	sh_table = malloc(sizeof(shash_table_t));
@@ -135,7 +135,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new_shash_node = add_sh(&(ht->array[i]), key, value);
 
 	if (!new_shash_node)
-		return (0)
+		return (0);
 
 	add_ll(ht, new_shash_node);
 
